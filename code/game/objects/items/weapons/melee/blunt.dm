@@ -115,6 +115,75 @@
 	misscost = 15
 	item_damage_type = "blunt"
 
+//................ Court Physician Cane ............... //
+
+/obj/item/weapon/mace/courtphysician
+	name = "physician's cane"
+	desc = "A prized cane. Embellished with a golden serpent, representing the Kingsfield university. The pointy end is quite sharp."
+	icon_state = "fancy_cane"
+	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/thrust)
+	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash)
+	sellprice = 30
+	minstr = 5
+	force = DAMAGE_MACE - 3
+	force_wielded = DAMAGE_MACE - 1
+	wdefense = MEDIOCHRE_PARRY
+
+/obj/item/weapon/mace/courtphysician/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list(
+					"shrink" = 0.5,
+					"sx" = -6,
+					"sy" = -6,
+					"nx" = 6,
+					"ny" = -5,
+					"wx" = -1,
+					"wy" = -5,
+					"ex" = -1,
+					"ey" = -5,
+					"nturn" = -45,
+					"sturn" = -45,
+					"wturn" = -45,
+					"eturn" = -45,
+					"nflip" = 0,
+					"sflip" = 0,
+					"wflip" = 0,
+					"eflip" = 0,
+					"northabove" = FALSE,
+					"southabove" = TRUE,
+					"eastabove" = TRUE,
+					"westabove" = FALSE
+				)
+			if("wielded")
+				return list(
+					"shrink" = 0.5,
+					"sx" = 0,
+					"sy" = 0,
+					"nx" = 0,
+					"ny" = 0,
+					"wx" = -3,
+					"wy" = 0,
+					"ex" = 3,
+					"ey" = 0,
+					"nturn" = -90,
+					"sturn" = 0,
+					"wturn" = -90,
+					"eturn" = 0,
+					"nflip" = 0,
+					"sflip" = 0,
+					"wflip" = 0,
+					"eflip" = 0,
+					"northabove" = FALSE,
+					"southabove" = TRUE,
+					"eastabove" = TRUE,
+					"westabove" = TRUE
+				)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
 
 //................ Bell ringer ............... //
 /obj/item/weapon/mace/church
@@ -293,8 +362,7 @@
 	desc = "A two handed club, decorated with a spiked cap crown. A perfect way to say Good Morning to any would be noble-knight."
 	icon_state = "goedendag"
 	icon = 'icons/roguetown/weapons/64.dmi'
-	pixel_y = -16
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, -16)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	bigboy = TRUE
@@ -402,8 +470,7 @@
 	desc = "Big old oak branch, carved to a deadly weapon."
 	icon_state = "shillelagh"
 	icon = 'icons/roguetown/weapons/shillelagh.dmi'
-	pixel_y = 0
-	pixel_x = 0
+	SET_BASE_PIXEL(0, 0)
 	bigboy = FALSE
 	gripsprite = TRUE
 	slot_flags = ITEM_SLOT_BACK
@@ -550,3 +617,9 @@
 	wbalance = DODGE_CHANCE_NORMAL
 	sellprice = 60
 	wdefense = GOOD_PARRY
+
+/obj/item/weapon/mace/goden/steel/ravox
+	name = "duel settler"
+	desc = "The tenets of ravoxian duels are enscribed upon the head of this maul."
+	icon_state = "ravoxhammer"
+	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash)

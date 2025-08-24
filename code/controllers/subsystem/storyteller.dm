@@ -558,6 +558,8 @@ SUBSYSTEM_DEF(gamemode)
 				continue
 			if(length(required_roles) && !(candidate.mind.assigned_role.title in required_roles))
 				continue
+			if(candidate.mind.special_role)
+				continue
 
 		if(be_special)
 			if(!(candidate.client.prefs) || !(be_special in candidate.client.prefs.be_special))
@@ -801,15 +803,9 @@ SUBSYSTEM_DEF(gamemode)
 	if(ttime >= GLOB.round_timer)
 		if(roundvoteend)
 			if(ttime >= round_ends_at)
-				// for(var/mob/living/carbon/human/H in GLOB.human_list)
-				// 	if(H.stat != DEAD)
-				// 		if(H.allmig_reward)
-				// 			H.adjust_triumphs(H.allmig_reward)
-				// 			H.allmig_reward = 0
 				return TRUE
-		else
-			if(!SSvote.mode)
-				SSvote.initiate_vote("endround", pick("Zlod", "Sun King", "Gaia", "Moon Queen", "Aeon", "Gemini", "Aries"))
+		else if(!SSvote.mode)
+			SSvote.initiate_vote("endround", "The Gods")
 
 	if(SSmapping.retainer.head_rebel_decree)
 		if(reb_end_time == 0)

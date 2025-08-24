@@ -297,6 +297,13 @@
 	craftdiff = 1
 	category = "Neck"
 
+/datum/repeatable_crafting_recipe/sewing/courtphys_collar
+	name = "court physician's collar"
+	requirements = list(/obj/item/natural/cloth = 3, /obj/item/natural/fibers = 2,)
+	output = /obj/item/clothing/neck/courtphysician
+	craftdiff = 1
+	category = "Neck"
+
 /datum/repeatable_crafting_recipe/sewing/roguehood
 	name = "cloth hood"
 	requirements = list(/obj/item/natural/cloth = 1, /obj/item/natural/fibers = 1,)
@@ -518,6 +525,13 @@
 	output = /obj/item/clothing/shirt/robe/phys
 	requirements = list(/obj/item/natural/cloth = 3,
 				/obj/item/natural/fibers = 1)
+	craftdiff = 3
+
+/datum/repeatable_crafting_recipe/sewing/courtphysician_robes
+	name = "court physician robes"
+	output = /obj/item/clothing/shirt/robe/courtphysician
+	requirements = list(/obj/item/natural/cloth = 4,
+				/obj/item/natural/fibers = 3)
 	craftdiff = 3
 
 /datum/repeatable_crafting_recipe/sewing/robe
@@ -777,3 +791,11 @@
 /datum/repeatable_crafting_recipe/sewing/carpet/red
 	name = "red carpet"
 	output = /obj/item/natural/carpet_fibers/red
+
+/datum/repeatable_crafting_recipe/sewing/beehood
+	name = "beehood"
+	output = /obj/item/clothing/head/beekeeper
+	requirements = list(/obj/item/natural/cloth = 4,
+				/obj/item/natural/fibers = 2)
+	craftdiff = 2
+	category = "Hat"
